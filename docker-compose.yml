@@ -1,0 +1,32 @@
+version: '3'
+services:
+  smch-partner-app:
+    container_name: smch-partner-app
+    image: smch/csc-example
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - 'API_KEY_LIST={ "key-abc-def-jkl": ["users"], "key-123-456-789": ["users"] }'
+      - 'SUBSCRIBERS=[{"operation": "new-user", "url": "http://smch-my-app:3000/callback", "apiKey": "key-ddd-ddd-ddd"}]'
+    ports:
+      - "3000:3000"
+    networks:
+      - smch-network
+
+  smch-my-app:
+    container_name: smch-my-app
+    image: smch/csc-example
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - 'API_KEY_LIST={ "key-ddd-ddd-ddd": ["callback"], "key-aaa-aaa-aaa": ["users"] }'
+      - 'SUBSCRIBERS=[]'
+    ports:
+      - "3001:3000"
+    networks:
+      - smch-network
+
+networks:
+  smch-network:

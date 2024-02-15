@@ -1,0 +1,26 @@
+{
+  "name": "smch-csc-example",
+  "version": "1.0.0",
+  "description": "SmartCHANGE cross-system communication example",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smartchange-eu/smch-csc-example.git"
+  },
+  "keywords": [],
+  "author": "connectedCare",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smartchange-eu/smch-csc-example/issues"
+  },
+  "homepage": "https://github.com/smartchange-eu/smch-csc-example#readme",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "express": "^4.18.2",
+    "swagger-ui-express": "^5.0.0",
+    "yamljs": "^0.3.0"
+  }
+}

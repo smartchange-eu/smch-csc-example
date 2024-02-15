@@ -1,0 +1,59 @@
+openapi: 3.0.0
+info:
+  title: SmartCHANGE cross-system communication example
+  version: 1.0.0
+  description: Documentation for the SmartCHANGE cross-system communication example
+
+basePath: /
+
+tags:
+  - name: Users
+    description: Operations related to user
+
+paths:
+  /users:
+    get:
+      summary: Get the list of all users
+      description: Retrieve the the list od all userss
+      tags:
+        - Users
+      parameters:
+        - in: header
+          name: api-key
+          required: true
+          description: API key for authentication.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with the users list.
+          content:
+            application/json:
+              example:
+                - id: 1
+                  name: "John Doe"
+                - id: 2
+                  name: "Jane Doe"
+                - id: 3
+                  name: "Alice"
+
+    post:
+      summary: Create a new user
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              name: John Doe
+      responses:
+        201:
+          description: User created successfully
+          content:
+            application/json:
+              example:
+                id: 1
+                name: John Doe
+
+ 
